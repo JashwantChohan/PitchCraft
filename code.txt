@@ -1,3 +1,4 @@
+cohere ai.js code 
 console.log(
     "Cohere key starts with:",
     import.meta.env.VITE_COHERE_API_KEY?.slice(0, 10)
@@ -29,7 +30,7 @@ Generate a response in pure JSON only, following this exact structure:
         });
 
         const data = await response.json();
-        console.log("Cohere response:", data);
+        console.log("✅ Cohere response:", data);
 
         const text = data?.text?.trim() || "";
 
@@ -40,7 +41,7 @@ Generate a response in pure JSON only, following this exact structure:
             return { name: "Unknown", tagline: "N/A", pitch: text };
         }
     } catch (err) {
-        console.error(" Cohere API error:", err);
+        console.error("❌ Cohere API error:", err);
         return {
             name: "Error",
             tagline: "N/A",
@@ -50,3 +51,7 @@ Generate a response in pure JSON only, following this exact structure:
 }
 
 
+
+================================================
+
+VITE_COHERE_API_KEY=FXQkSBcRqO82t5BNxlTjVUpSk9lRlHxMwy3C4JzG

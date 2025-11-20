@@ -1,6 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Result() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const { name, tagline, pitch } = state || {};
 
@@ -10,9 +11,12 @@ export default function Result() {
       <p className="text-gray-600 mt-2 italic">“{tagline}”</p>
       <p className="mt-4 text-lg">{pitch}</p>
 
-      <a href="/create" className="mt-6 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+      <button
+        onClick={() => navigate("/create")}
+        className="mt-6 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+      >
         Generate Another
-      </a>
+      </button>
     </div>
   );
 }
